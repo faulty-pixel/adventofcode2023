@@ -28,15 +28,8 @@ number([H]) ->
 part2(FileName) ->
     Lines = readfile(FileName),
     Numbers = [filter_digits_pro(Line) || Line <- Lines],
-    print_nums(Numbers),
     Sum = lists:sum(Numbers),
     io:format("~p~n", [Sum]).
-
-print_nums([]) ->
-    ok;
-print_nums([H | T]) ->
-    io:format("~p~n", [H]),
-    print_nums(T).
 
 filter_digits_pro(Line) ->
     {FNo, ok} = first_number(Line),
